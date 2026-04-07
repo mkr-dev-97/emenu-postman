@@ -1,0 +1,2675 @@
+{
+  "info": {
+    "_postman_id": "0234dfab-07c2-4cc6-a0d3-5c51b304e424",
+    "name": "E-MENU",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "33044460"
+  },
+  "item": [
+    {
+      "name": "application",
+      "item": [
+        {
+          "name": "actuator",
+          "item": [
+            {
+              "name": "health",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{$healthBaseUrl}}/{{$contextPath}}/actuator/health",
+                  "host": [
+                    "{{$healthBaseUrl}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "actuator",
+                    "health"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "info",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{$healthBaseUrl}}/{{$contextPath}}/actuator/info",
+                  "host": [
+                    "{{$healthBaseUrl}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "actuator",
+                    "info"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "refresh",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{$healthBaseUrl}}/{{$contextPath}}/actuator/refresh",
+                  "host": [
+                    "{{$healthBaseUrl}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "actuator",
+                    "refresh"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "admin",
+      "item": [
+        {
+          "name": "redis-manage",
+          "item": [
+            {
+              "name": "info",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/redis/info",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "redis",
+                    "info"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "stats",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/redis/stats",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "redis",
+                    "stats"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "dbsize",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/redis/dbsize",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "redis",
+                    "dbsize"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "keys",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/redis/keys",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "redis",
+                    "keys"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "searchByPattern",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/redis/keys?pattern=lovValues*",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "redis",
+                    "keys"
+                  ],
+                  "query": [
+                    {
+                      "key": "pattern",
+                      "value": "lovValues*"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "valueByKey",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/redis/key/client-credential::wlth_e6442b3c24774dc78121e16eefc",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "redis",
+                    "key",
+                    "client-credential::wlth_e6442b3c24774dc78121e16eefc"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "deleteByKey",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/redis/key/client-credential::wlth_445213d4ef46465aa3ca36f62e8",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "redis",
+                    "key",
+                    "client-credential::wlth_445213d4ef46465aa3ca36f62e8"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "deleteAll",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/redis/caches",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "redis",
+                    "caches"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "deleteByPattern",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/redis/keys?pattern=publicPreload*",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "redis",
+                    "keys"
+                  ],
+                  "query": [
+                    {
+                      "key": "pattern",
+                      "value": "publicPreload*"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "setExpiryByKey",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/redis/key/client-credential::abc123/ttl?seconds=300",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "redis",
+                    "key",
+                    "client-credential::abc123",
+                    "ttl"
+                  ],
+                  "query": [
+                    {
+                      "key": "seconds",
+                      "value": "300"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "flushCacheByName",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/redis/cache/client-credential",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "redis",
+                    "cache",
+                    "client-credential"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "flushDB",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/redis/flushdb",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "redis",
+                    "flushdb"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "client-manage",
+          "item": [
+            {
+              "name": "createClient",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer <your-jwt-token>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"channel\": \"MOBILE_MERCHANT\",\n    \"client_name\": \"Mobile Merchant Frontend\",\n    \"redirect_uri\": \"https://app.wealth.com/callback\",\n    \"grant_type\": \"client_credentials,password,refresh_token\",\n    \"scope\": \"read write\",\n    \"access_token_timeout\": 3600,\n    \"refresh_token_timeout\": 86400,\n    \"ip_whitelist\": null,\n    \"skip_validate_ip\": true\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/client-credentials",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "client-credentials"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "createClientSystemAdmin",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer <your-jwt-token>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"channel\": \"SYSTEM_ADMIN\",\n    \"client_name\": \"System Admin\",\n    \"redirect_uri\": null,\n    \"grant_type\": \"client_credentials\",\n    \"scope\": \"read write\",\n    \"access_token_timeout\": 3600,\n    \"refresh_token_timeout\": 86400,\n    \"ip_whitelist\": null,\n    \"skip_validate_ip\": true\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/client-credentials",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "client-credentials"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "updateClient",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer <your-jwt-token>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"channel\": \"MOBILE_MERCHANT\",\n    \"client_name\": \"Mobile Merchant Frontend\",\n    \"redirect_uri\": \"https://app.wealth.com/callback\",\n    \"grant_type\": \"client_credentials,password,refresh_token\",\n    \"scope\": \"read write\",\n    \"access_token_timeout\": 3600,\n    \"refresh_token_timeout\": 86400,\n    \"ip_whitelist\": null,\n    \"skip_validate_ip\": true\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/client-credentials",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "client-credentials"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "auth-manage",
+          "item": [
+            {
+              "name": "permission",
+              "item": [
+                {
+                  "name": "permission",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{$system_access_token}}"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"code\": \"USER:CREATE\",\n    \"name\": \"Create User\",\n    \"resource\": \"USER\",\n    \"action\": \"CREATE\",\n    \"category\": \"USERS\"\n  }",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/permissions",
+                      "host": [
+                        "{{$baseURL}}"
+                      ],
+                      "path": [
+                        "{{$contextPath}}",
+                        "api",
+                        "v1",
+                        "admin",
+                        "permissions"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "role",
+              "item": [
+                {
+                  "name": "roles",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{$system_access_token}}"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"code\": \"MERCHANT\",\n    \"name\": \"Merchant Owner\",\n    \"name_kh\": \"\",\n    \"description\": \"Owner store operations\",\n    \"level\": 60,\n    \"is_system_role\": false,\n    \"permission_ids\": [1]\n  }",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/roles",
+                      "host": [
+                        "{{$baseURL}}"
+                      ],
+                      "path": [
+                        "{{$contextPath}}",
+                        "api",
+                        "v1",
+                        "admin",
+                        "roles"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "crypto",
+          "item": [
+            {
+              "name": "encrypt",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "var response = JSON.parse(responseBody);",
+                      "pm.environment.set(\"$value_encrypted\", response.data.encrypted);",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"plain_text\": \"Pwd@1234\"\n}"
+                },
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/crypto/encrypt",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "crypto",
+                    "encrypt"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "decrypt",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"cipher_text\": \"{{$value_encrypted}}\"\n}"
+                },
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/crypto/decrypt",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "crypto",
+                    "decrypt"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "authTokenSystemAdmin",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var response = JSON.parse(responseBody);",
+                  "pm.environment.set(\"$system_access_token\", response.data.access_token);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "client_id",
+                "value": "{{$systemClientID}}",
+                "type": "text"
+              },
+              {
+                "key": "client_secret",
+                "value": "{{$systemClientSecret}}",
+                "type": "text"
+              },
+              {
+                "key": "device_id",
+                "value": "MKR-DEVICE-97",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"grant_type\": \"client_credentials\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/auth/token",
+              "host": [
+                "{{$baseURL}}"
+              ],
+              "path": [
+                "{{$contextPath}}",
+                "api",
+                "v1",
+                "auth",
+                "token"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "auth-token",
+      "item": [
+        {
+          "name": "clientCredentials",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var response = JSON.parse(responseBody);",
+                  "pm.environment.set(\"$access_token\", response.data.access_token);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "client_id",
+                "value": "{{$mobileClientID}}",
+                "type": "text"
+              },
+              {
+                "key": "client_secret",
+                "value": "{{$mobileClientSecret}}",
+                "type": "text"
+              },
+              {
+                "key": "device_id",
+                "value": "MKR-DEVICE-97",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"grant_type\": \"client_credentials\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/auth/token",
+              "host": [
+                "{{$baseURL}}"
+              ],
+              "path": [
+                "{{$contextPath}}",
+                "api",
+                "v1",
+                "auth",
+                "token"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "password",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var response = JSON.parse(responseBody);",
+                  "pm.environment.set(\"$access_token\", response.data.access_token);",
+                  "pm.environment.set(\"$refresh_token\", response.data.refresh_token);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "device_id",
+                "value": "MKR-DEVICE-97",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{$access_token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"merchant123\",\n    \"password\": \"{{$value_encrypted}}\",\n    \"grant_type\": \"password\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/auth/token",
+              "host": [
+                "{{$baseURL}}"
+              ],
+              "path": [
+                "{{$contextPath}}",
+                "api",
+                "v1",
+                "auth",
+                "token"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "refreshToken",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var response = JSON.parse(responseBody);",
+                  "pm.environment.set(\"$access_token\", response.data.access_token);",
+                  "pm.environment.set(\"$refresh_token\", response.data.refresh_token);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "client_id",
+                "value": "{{$clientID}}",
+                "type": "text"
+              },
+              {
+                "key": "client_secret",
+                "value": "{{$clientSecret}}",
+                "type": "text"
+              },
+              {
+                "key": "device_id",
+                "value": "MKR-DEVICE-97",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"refresh_token\": \"{{$refresh_token}}\",\n    \"grant_type\": \"refresh_token\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/auth/token",
+              "host": [
+                "{{$baseURL}}"
+              ],
+              "path": [
+                "{{$contextPath}}",
+                "api",
+                "v1",
+                "auth",
+                "token"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "app-load",
+      "item": [
+        {
+          "name": "publicPreload",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var response = JSON.parse(responseBody);",
+                  "pm.environment.set(\"$access_token\", response.data.token);",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "device_id",
+                "value": "MKR-DEVICE-97",
+                "type": "text"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{$access_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/mobile/public/preload",
+              "host": [
+                "{{$baseURL}}"
+              ],
+              "path": [
+                "{{$contextPath}}",
+                "api",
+                "v1",
+                "mobile",
+                "public",
+                "preload"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "lov-manage",
+      "item": [
+        {
+          "name": "create",
+          "item": [
+            {
+              "name": "createFeatureFlags",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"mobile_merchant_feature_flags\",\n  \"channel\": \"MOBILE_MERCHANT\",\n  \"is_reload_lang\": false,\n  \"is_external_service\": false,\n  \"service\": null,\n  \"path\": null,\n  \"method\": null,\n  \"value\": {\n    \"enable_biometric_login\": true,\n    \"enable_new_onboarding\": false,\n    \"enable_dark_mode\": false,\n    \"enable_guest_checkout\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/lov",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "lov"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "createAppConfig",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "client_id",
+                    "value": "{{$systemClientID}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "client_secret",
+                    "value": "{{$systemClientSecret}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "device_id",
+                    "value": "MKR-DEVICE-97",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key\": \"mobile_merchant_app_config\",\n  \"channel\": \"MOBILE_MERCHANT\",\n  \"is_reload_lang\": false,\n  \"is_external_service\": false,\n  \"service\": null,\n  \"path\": null,\n  \"method\": null,\n  \"value\": {\n    \"session_timeout_minutes\": 30,\n    \"otp_expiry_seconds\": 120,\n    \"max_login_attempts\": 5,\n    \"support_email\": \"support@yourapp.com\",\n    \"support_phone\": \"+855-23-000-000\",\n    \"privacy_policy_url\": \"https://yourapp.com/privacy\",\n    \"terms_url\": \"https://yourapp.com/terms\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/lov?Authorization=Bearer {{$system_access_token}}",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "lov"
+                  ],
+                  "query": [
+                    {
+                      "key": "Authorization",
+                      "value": "Bearer {{$system_access_token}}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "createAuthConfig",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "client_id",
+                    "value": "{{$systemClientID}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "client_secret",
+                    "value": "{{$systemClientSecret}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "device_id",
+                    "value": "MKR-DEVICE-97",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"key\": \"mobile_merchant_auth_config\",\n    \"channel\": \"MOBILE_MERCHANT\",\n    \"is_reload_lang\": false,\n    \"is_external_service\": false,\n    \"service\": null,\n    \"path\": null,\n    \"method\": null,\n    \"value\": {\n        \"key\": \"auth\",\n        \"channel\": \"MOBILE\",\n        \"is_reload_lang\": false,\n        \"is_external_service\": false,\n        \"service\": null,\n        \"path\": null,\n        \"method\": null,\n        \"value\": {\n            \"providers\": [\n                \"email\",\n                \"telegram\"\n            ],\n            \"require_email_verification\": true,\n            \"password_policy\": {\n                \"min_length\": 8,\n                \"require_uppercase\": true,\n                \"require_number\": true,\n                \"require_special_char\": false\n            }\n        }\n    }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/lov?Authorization=Bearer {{$system_access_token}}",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "lov"
+                  ],
+                  "query": [
+                    {
+                      "key": "Authorization",
+                      "value": "Bearer {{$system_access_token}}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "getTimestamp",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{$system_access_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/lov/timestamp?key=MOBILE_MERCHANT_FEATURE_FLAGS&channel=MOBILE_MERCHANT",
+              "host": [
+                "{{$baseURL}}"
+              ],
+              "path": [
+                "{{$contextPath}}",
+                "api",
+                "v1",
+                "admin",
+                "lov",
+                "timestamp"
+              ],
+              "query": [
+                {
+                  "key": "key",
+                  "value": "MOBILE_MERCHANT_FEATURE_FLAGS"
+                },
+                {
+                  "key": "channel",
+                  "value": "MOBILE_MERCHANT"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getValue",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{$system_access_token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/lov/value?key=MOBILE_MERCHANT_FEATURE_FLAGS&channel=MOBILE_MERCHANT",
+              "host": [
+                "{{$baseURL}}"
+              ],
+              "path": [
+                "{{$contextPath}}",
+                "api",
+                "v1",
+                "admin",
+                "lov",
+                "value"
+              ],
+              "query": [
+                {
+                  "key": "key",
+                  "value": "MOBILE_MERCHANT_FEATURE_FLAGS"
+                },
+                {
+                  "key": "channel",
+                  "value": "MOBILE_MERCHANT"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "merchant-manage",
+      "item": [
+        {
+          "name": "admin",
+          "item": [
+            {
+              "name": "create",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"code\": \"MCH001\",\n    \"full_name\": \"Acme Trading Co.\",\n    \"full_name_kh\": \"អាកមេ ត្រេឌីង\",\n    \"email\": \"admin@acme.com\",\n    \"phone\": \"+85512345678\",\n    \"logo_url\": \"https://cdn.example.com/logo.png\",\n    \"cover_image_url\": \"https://cdn.example.com/cover.png\",\n    \"description\": \"Leading trading company in Cambodia\",\n    \"description_kh\": \"ក្រុមហ៊ុនពាណិជ្ជកម្មឈានមុខគេនៅកម្ពុជា\",\n    \"business_type\": \"LLC\",\n    \"registration_number\": \"REG-2024-001\",\n    \"tax_id\": \"TAX-001\",\n    \"address\": \"123 Norodom Blvd\",\n    \"city\": \"Phnom Penh\",\n    \"state\": \"Phnom Penh\",\n    \"postal_code\": \"12000\",\n    \"country\": \"KH\",\n    \"default_currency\": \"USD\",\n    \"default_timezone\": \"Asia/Phnom_Penh\",\n    \"default_language\": \"en\"\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/merchants",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "merchants"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"full_name\": \"Acme Trading Co. Ltd\",\n    \"full_name_kh\": \"អាកមេ ត្រេឌីង លីមីតធីត\",\n    \"phone\": \"+85598765432\",\n    \"logo_url\": \"https://cdn.example.com/logo-new.png\",\n    \"city\": \"Siem Reap\",\n    \"default_currency\": \"USD\",\n    \"default_language\": \"km\"\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/merchants/1",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "merchants",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "softDelete",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/merchants/1",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "merchants",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "permanentDelete",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}//{{$contextPath}}api/v1/admin/merchants/1/permanent",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "",
+                    "{{$contextPath}}api",
+                    "v1",
+                    "admin",
+                    "merchants",
+                    "1",
+                    "permanent"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "list",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/merchants?page=0&size=20&sort=created_at,desc",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "merchants"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "created_at,desc"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "search",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/merchants?search=acme&page=0&size=20",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "merchants"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "acme"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "detailByID",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/merchants/1",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "merchants",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "detailByCode",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/merchants/code/MCH001",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "merchants",
+                    "code",
+                    "MCH001"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "store-manage",
+      "item": [
+        {
+          "name": "admin",
+          "item": [
+            {
+              "name": "create",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"merchant_id\": 1,\n    \"code\": \"STR001\",\n    \"name\": \"Acme Main Branch\",\n    \"name_kh\": \"អាកមេ សាខាចម្បង\",\n    \"slug\": \"acme-main\",\n    \"subdomain\": \"acme\",\n    \"email\": \"main@acme.com\",\n    \"phone\": \"+85512345678\",\n    \"logo_url\": \"https://cdn.example.com/store-logo.png\",\n    \"cover_image_url\": \"https://cdn.example.com/store-cover.png\",\n    \"description\": \"Our flagship retail store\",\n    \"description_kh\": \"ហាងលក់រាយចម្បងរបស់យើង\",\n    \"address\": \"123 Norodom Blvd\",\n    \"city\": \"Phnom Penh\",\n    \"state\": \"Phnom Penh\",\n    \"postal_code\": \"12000\",\n    \"country\": \"KH\",\n    \"latitude\": 11.5564,\n    \"longitude\": 104.9282,\n    \"store_type\": \"RETAIL\",\n    \"business_hours\": \"{\\\"monday\\\":{\\\"open\\\":\\\"09:00\\\",\\\"close\\\":\\\"18:00\\\",\\\"is_closed\\\":false},\\\"tuesday\\\":{\\\"open\\\":\\\"09:00\\\",\\\"close\\\":\\\"18:00\\\",\\\"is_closed\\\":false},\\\"sunday\\\":{\\\"open\\\":\\\"10:00\\\",\\\"close\\\":\\\"16:00\\\",\\\"is_closed\\\":false}}\",\n    \"meta_title\": \"Acme Main Branch - Best Retail Store in Phnom Penh\",\n    \"meta_description\": \"Shop at Acme Main Branch for the best deals\",\n    \"meta_keywords\": \"retail, phnom penh, acme\"\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/stores",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "stores"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "update",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"Acme Main Branch (Updated)\",\n    \"name_kh\": \"អាកមេ សាខាចម្បង (ថ្មី)\",\n    \"phone\": \"+85598001234\",\n    \"logo_url\": \"https://cdn.example.com/store-logo-v2.png\",\n    \"cover_image_url\": \"https://cdn.example.com/store-cover-v2.png\",\n    \"city\": \"Siem Reap\",\n    \"latitude\": 13.3671,\n    \"longitude\": 103.8448,\n    \"meta_title\": \"Acme Siem Reap Branch\"\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/stores/1",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "stores",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "updateSlugSubByID",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"slug\": \"acme-siem-reap\",\n    \"subdomain\": \"acme-sr\"\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/stores/1",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "stores",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "updateBizHour",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"business_hours\": \"{\\\"monday\\\":{\\\"open\\\":\\\"08:00\\\",\\\"close\\\":\\\"20:00\\\",\\\"is_closed\\\":false},\\\"saturday\\\":{\\\"open\\\":\\\"09:00\\\",\\\"close\\\":\\\"17:00\\\",\\\"is_closed\\\":false},\\\"sunday\\\":{\\\"open\\\":\\\"00:00\\\",\\\"close\\\":\\\"00:00\\\",\\\"is_closed\\\":true}}\"\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/stores/1",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "stores",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "softDelete",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/stores/1",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "stores",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "permanentDelete",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/stores/1/permanent",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "stores",
+                    "1",
+                    "permanent"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "list",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/stores?page=0&size=20&sort=created_at,desc",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "stores"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "created_at,desc"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "search",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/stores?search=main&page=0&size=20",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "stores"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "main"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "listByMerchantID",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/stores/merchant/1?page=0&size=20",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "stores",
+                    "merchant",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "searchByMerchantID",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/stores/merchant/1?search=main&page=0&size=20",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "stores",
+                    "merchant",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "main"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "detailByID",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/stores/1",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "stores",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "detailBySlug",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/stores/slug/acme-main",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "stores",
+                    "slug",
+                    "acme-main"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "detailBySubDomain",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/stores/subdomain/acme",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "stores",
+                    "subdomain",
+                    "acme"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "setting",
+          "item": [
+            {
+              "name": "create",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"enable_e_menu\": true,\n    \"enable_e_commerce\": true,\n    \"enable_pos\": false,\n    \"primary_color\": \"#1D9E75\",\n    \"secondary_color\": \"#0F6E56\",\n    \"font_family\": \"Kantumruy Pro\",\n    \"show_images\": true,\n    \"show_tags\": true,\n    \"show_prices\": true,\n    \"show_ratings\": true,\n    \"show_stock_status\": true,\n    \"allow_online_orders\": true,\n    \"allow_delivery\": true,\n    \"allow_pickup\": true,\n    \"allow_dine_in\": false,\n    \"allow_reservations\": false,\n    \"min_order_amount\": 5.00,\n    \"max_order_amount\": 500.00,\n    \"accepted_payment_methods\": \"[\\\"CASH\\\",\\\"CARD\\\",\\\"MOBILE\\\"]\",\n    \"currency_code\": \"USD\",\n    \"supported_currencies\": \"[\\\"USD\\\",\\\"KHR\\\"]\",\n    \"tax_rate\": 10.00,\n    \"service_charge_rate\": 5.00,\n    \"tax_inclusive\": false,\n    \"notification_email\": \"orders@acme.com\",\n    \"notification_phone\": \"+85512345678\",\n    \"enable_order_notifications\": true,\n    \"enable_low_stock_notifications\": true,\n    \"seo_title\": \"Acme Main - Best Retail Store\",\n    \"seo_description\": \"Shop the best products at Acme\",\n    \"seo_keywords\": \"retail, cambodia, acme\",\n    \"social_links\": \"{\\\"facebook\\\":\\\"https://fb.com/acme\\\",\\\"instagram\\\":\\\"https://instagram.com/acme\\\",\\\"twitter\\\":\\\"\\\"}\"\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/stores/1/settings",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "stores",
+                    "1",
+                    "settings"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "detailBySotreID",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/stores/1/settings?Authorization=Bearer {{$system_access_token}}",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "stores",
+                    "1",
+                    "settings"
+                  ],
+                  "query": [
+                    {
+                      "key": "Authorization",
+                      "value": "Bearer {{$system_access_token}}",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "patrialUpdate",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"primary_color\": \"#534AB7\",\n    \"secondary_color\": \"#3C3489\",\n    \"tax_rate\": 10.00,\n    \"service_charge_rate\": 5.00,\n    \"tax_inclusive\": false\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/stores/1/settings",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "stores",
+                    "1",
+                    "settings"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "upsert",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"enable_e_commerce\": true,\n    \"enable_pos\": true,\n    \"allow_online_orders\": true,\n    \"allow_delivery\": true,\n    \"currency_code\": \"USD\",\n    \"supported_currencies\": \"[\\\"USD\\\",\\\"KHR\\\"]\",\n    \"tax_rate\": 10.00,\n    \"accepted_payment_methods\": \"[\\\"CASH\\\",\\\"CARD\\\",\\\"MOBILE\\\"]\",\n    \"notification_email\": \"notify@acme.com\",\n    \"enable_order_notifications\": true\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/stores/1/settings/upsert",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "stores",
+                    "1",
+                    "settings",
+                    "upsert"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "toggleFeatures",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"enable_e_menu\": true,\n    \"enable_e_commerce\": false,\n    \"enable_pos\": true,\n    \"allow_dine_in\": true,\n    \"allow_reservations\": true\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/adminstores/1/settings",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "adminstores",
+                    "1",
+                    "settings"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "updateDisplay",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"show_images\": true,\n    \"show_tags\": false,\n    \"show_prices\": true,\n    \"show_ratings\": false,\n    \"show_stock_status\": true\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/stores/1/settings",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "stores",
+                    "1",
+                    "settings"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "updatePayment",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"show_images\": true,\n    \"show_tags\": false,\n    \"show_prices\": true,\n    \"show_ratings\": false,\n    \"show_stock_status\": true\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admintores/1/settings",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admintores",
+                    "1",
+                    "settings"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "updateSEO",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"social_links\": \"{\\\"facebook\\\":\\\"https://fb.com/acme\\\",\\\"instagram\\\":\\\"https://instagram.com/acme\\\",\\\"tiktok\\\":\\\"https://tiktok.com/@acme\\\"}\",\n    \"seo_title\": \"Acme Store - Cambodia\",\n    \"seo_description\": \"Premium retail store in Cambodia\",\n    \"seo_keywords\": \"acme, retail, cambodia, phnom penh\"\n  }",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/stores/1/settings",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "stores",
+                    "1",
+                    "settings"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "reset",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{$system_access_token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/admin/stores/1/settings/reset",
+                  "host": [
+                    "{{$baseURL}}"
+                  ],
+                  "path": [
+                    "{{$contextPath}}",
+                    "api",
+                    "v1",
+                    "admin",
+                    "stores",
+                    "1",
+                    "settings",
+                    "reset"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "user-manage",
+      "item": [
+        {
+          "name": "createUser",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{$system_access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\": \"merchant123\",\n    \"password\": \"{{$value_encrypted}}\",\n    \"user_type\": \"MERCHANT\",\n    \"merchant_id\": 1,\n    \"is_admin_role\": false,\n    \"locale\": \"en\",\n    \"timezone\": \"Asia/Phnom_Penh\",\n    \"role_ids\": [1]\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{$baseURL}}/{{$contextPath}}/api/v1/users",
+              "host": [
+                "{{$baseURL}}"
+              ],
+              "path": [
+                "{{$contextPath}}",
+                "api",
+                "v1",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
