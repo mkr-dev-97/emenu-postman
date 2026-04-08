@@ -1,0 +1,3014 @@
+{
+  "info": {
+    "name": "Ecom Backend API",
+    "_postman_id": "ecom-backend-api-collection",
+    "description": "Complete API collection for ecom-backend — context path: /api-backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      { "key": "token", "value": "{{token}}", "type": "string" }
+    ]
+  },
+  "item": [
+    {
+      "name": "Mobile",
+      "item": [
+        {
+          "name": "Public Preload",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [
+              { "key": "X-Platform", "value": "android", "description": "Platform: android | ios" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/mobile/public/preload",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "mobile", "public", "preload"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Web",
+      "item": [
+        {
+          "name": "Public Preload",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [
+              { "key": "X-Platform", "value": "web", "description": "Platform identifier" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/v1/web/public/preload",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "web", "public", "preload"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Get Token",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"password\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/auth/token",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "auth", "token"]
+            }
+          }
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/auth/logout",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "auth", "logout"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Identity - Users",
+      "item": [
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"john.doe\",\n  \"password\": \"Password123\",\n  \"userType\": \"MERCHANT_ADMIN\",\n  \"merchantId\": 1,\n  \"locale\": \"en\",\n  \"timezone\": \"Asia/Phnom_Penh\",\n  \"roleIds\": []\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/users",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "users"]
+            }
+          }
+        },
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/users/{{user_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "users", "{{user_id}}"],
+              "variable": [{ "key": "user_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Get Current User",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/users/me",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "users", "me"]
+            }
+          }
+        },
+        {
+          "name": "List Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/users?page=0&size=20&sortBy=createdAt&direction=desc",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "users"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" },
+                { "key": "sortBy", "value": "createdAt" },
+                { "key": "direction", "value": "desc" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locale\": \"en\",\n  \"timezone\": \"Asia/Phnom_Penh\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/users/{{user_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "users", "{{user_id}}"],
+              "variable": [{ "key": "user_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/users/{{user_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "users", "{{user_id}}"],
+              "variable": [{ "key": "user_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Enable User",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/users/{{user_id}}/enable",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "users", "{{user_id}}", "enable"],
+              "variable": [{ "key": "user_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Disable User",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/users/{{user_id}}/disable",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "users", "{{user_id}}", "disable"],
+              "variable": [{ "key": "user_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Unlock User",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/users/{{user_id}}/unlock",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "users", "{{user_id}}", "unlock"],
+              "variable": [{ "key": "user_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Change Password",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"currentPassword\": \"OldPass123\",\n  \"newPassword\": \"NewPass123\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/users/{{user_id}}/change-password",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "users", "{{user_id}}", "change-password"],
+              "variable": [{ "key": "user_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Setup PIN",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pin\": \"123456\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/users/{{user_id}}/pin/setup",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "users", "{{user_id}}", "pin", "setup"],
+              "variable": [{ "key": "user_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Verify PIN",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pin\": \"123456\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/users/{{user_id}}/pin/verify",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "users", "{{user_id}}", "pin", "verify"],
+              "variable": [{ "key": "user_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Disable PIN",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/users/{{user_id}}/pin",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "users", "{{user_id}}", "pin"],
+              "variable": [{ "key": "user_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Register Biometric",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"biometricKey\": \"base64encodedkey\",\n  \"deviceId\": \"device-uuid\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/users/{{user_id}}/biometric/register",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "users", "{{user_id}}", "biometric", "register"],
+              "variable": [{ "key": "user_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Disable Biometric",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/users/{{user_id}}/biometric",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "users", "{{user_id}}", "biometric"],
+              "variable": [{ "key": "user_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Get User Roles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/users/{{user_id}}/roles",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "users", "{{user_id}}", "roles"],
+              "variable": [{ "key": "user_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Assign Roles to User",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"roleIds\": [1, 2]\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/users/{{user_id}}/roles",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "users", "{{user_id}}", "roles"],
+              "variable": [{ "key": "user_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Get User Devices",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/users/{{user_id}}/devices",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "users", "{{user_id}}", "devices"],
+              "variable": [{ "key": "user_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Remove Device",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/users/{{user_id}}/devices/{{device_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "users", "{{user_id}}", "devices", "{{device_id}}"],
+              "variable": [
+                { "key": "user_id", "value": "1" },
+                { "key": "device_id", "value": "device-uuid" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Identity - Roles",
+      "item": [
+        {
+          "name": "Create Role",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"MERCHANT_ADMIN\",\n  \"name\": \"Merchant Administrator\",\n  \"description\": \"Full access to merchant resources\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/roles",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "roles"]
+            }
+          }
+        },
+        {
+          "name": "Get All Roles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/roles",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "roles"]
+            }
+          }
+        },
+        {
+          "name": "Get Role by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/roles/{{role_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "roles", "{{role_id}}"],
+              "variable": [{ "key": "role_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Get Role by Code",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/roles/code/{{code}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "roles", "code", "{{code}}"],
+              "variable": [{ "key": "code", "value": "MERCHANT_ADMIN" }]
+            }
+          }
+        },
+        {
+          "name": "Update Role",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"MERCHANT_ADMIN\",\n  \"name\": \"Merchant Administrator\",\n  \"description\": \"Updated description\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/roles/{{role_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "roles", "{{role_id}}"],
+              "variable": [{ "key": "role_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Delete Role",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/roles/{{role_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "roles", "{{role_id}}"],
+              "variable": [{ "key": "role_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Assign Permissions to Role",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "[1, 2, 3]",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/roles/{{role_id}}/permissions",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "roles", "{{role_id}}", "permissions"],
+              "variable": [{ "key": "role_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Remove Permissions from Role",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "[1, 2]",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/roles/{{role_id}}/permissions",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "roles", "{{role_id}}", "permissions"],
+              "variable": [{ "key": "role_id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Identity - Permissions",
+      "item": [
+        {
+          "name": "Create Permission",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"MERCHANT_READ\",\n  \"name\": \"Read Merchant\",\n  \"category\": \"MERCHANT\",\n  \"resource\": \"merchant\",\n  \"action\": \"READ\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/permissions",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "permissions"]
+            }
+          }
+        },
+        {
+          "name": "Get All Permissions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/permissions",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "permissions"]
+            }
+          }
+        },
+        {
+          "name": "Get Permission by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/permissions/{{permission_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "permissions", "{{permission_id}}"],
+              "variable": [{ "key": "permission_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Get Permissions by Category",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/permissions/category/{{category}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "permissions", "category", "{{category}}"],
+              "variable": [{ "key": "category", "value": "MERCHANT" }]
+            }
+          }
+        },
+        {
+          "name": "Get Permissions by Resource",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/permissions/resource/{{resource}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "permissions", "resource", "{{resource}}"],
+              "variable": [{ "key": "resource", "value": "merchant" }]
+            }
+          }
+        },
+        {
+          "name": "Update Permission",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"MERCHANT_READ\",\n  \"name\": \"Read Merchant (updated)\",\n  \"category\": \"MERCHANT\",\n  \"resource\": \"merchant\",\n  \"action\": \"READ\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/permissions/{{permission_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "permissions", "{{permission_id}}"],
+              "variable": [{ "key": "permission_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Delete Permission",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/permissions/{{permission_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "permissions", "{{permission_id}}"],
+              "variable": [{ "key": "permission_id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Identity - Client Credentials",
+      "item": [
+        {
+          "name": "Create Client Credential",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clientName\": \"Mobile App\",\n  \"description\": \"Mobile application client\",\n  \"scopes\": [\"read\", \"write\"]\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/client-credentials",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "client-credentials"]
+            }
+          }
+        },
+        {
+          "name": "Get Client Credential by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/client-credentials/{{id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "client-credentials", "{{id}}"],
+              "variable": [{ "key": "id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Get Client Credential by Client ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/client-credentials/by-client-id/{{client_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "client-credentials", "by-client-id", "{{client_id}}"],
+              "variable": [{ "key": "client_id", "value": "abc123" }]
+            }
+          }
+        },
+        {
+          "name": "Search Client Credentials",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/client-credentials?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "client-credentials"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Client Credential",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clientName\": \"Mobile App v2\",\n  \"description\": \"Updated mobile app client\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/client-credentials/{{id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "client-credentials", "{{id}}"],
+              "variable": [{ "key": "id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Update Client Status",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"ACTIVE\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/client-credentials/{{id}}/status",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "client-credentials", "{{id}}", "status"],
+              "variable": [{ "key": "id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Rotate Secret",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/client-credentials/{{id}}/rotate-secret",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "client-credentials", "{{id}}", "rotate-secret"],
+              "variable": [{ "key": "id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Delete Client Credential",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/client-credentials/{{id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "client-credentials", "{{id}}"],
+              "variable": [{ "key": "id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Merchant",
+      "item": [
+        {
+          "name": "Create Merchant",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"MERCHANT001\",\n  \"fullName\": \"Wealth Store Co.\",\n  \"fullNameKh\": \"ក្រុមហ៊ុន Wealth Store\",\n  \"email\": \"admin@wealthstore.com\",\n  \"phone\": \"+85512345678\",\n  \"businessType\": \"RETAIL\",\n  \"registrationNumber\": \"REG-001\",\n  \"taxId\": \"TAX-001\",\n  \"address\": \"123 Main Street\",\n  \"city\": \"Phnom Penh\",\n  \"country\": \"KH\",\n  \"defaultCurrency\": \"USD\",\n  \"defaultTimezone\": \"Asia/Phnom_Penh\",\n  \"defaultLanguage\": \"en\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/merchants",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "merchants"]
+            }
+          }
+        },
+        {
+          "name": "Get Merchant by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/merchants/{{merchant_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "merchants", "{{merchant_id}}"],
+              "variable": [{ "key": "merchant_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Get Merchant by Code",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/merchants/code/{{code}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "merchants", "code", "{{code}}"],
+              "variable": [{ "key": "code", "value": "MERCHANT001" }]
+            }
+          }
+        },
+        {
+          "name": "List Merchants",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/merchants?search=&page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "merchants"],
+              "query": [
+                { "key": "search", "value": "", "disabled": true },
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Merchant",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Wealth Store Co. Updated\",\n  \"phone\": \"+85512345679\",\n  \"address\": \"456 New Street\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/merchants/{{merchant_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "merchants", "{{merchant_id}}"],
+              "variable": [{ "key": "merchant_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Soft Delete Merchant",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/merchants/{{merchant_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "merchants", "{{merchant_id}}"],
+              "variable": [{ "key": "merchant_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Hard Delete Merchant",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/merchants/{{merchant_id}}/permanent",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "merchants", "{{merchant_id}}", "permanent"],
+              "variable": [{ "key": "merchant_id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Merchant Subscriptions",
+      "item": [
+        {
+          "name": "Create Subscription",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"merchantId\": 1,\n  \"planId\": 1,\n  \"startDate\": \"2026-04-08\",\n  \"endDate\": \"2027-04-08\",\n  \"nextBillingDate\": \"2026-05-08\",\n  \"baseAmount\": 99.00,\n  \"taxAmount\": 9.90,\n  \"discountAmount\": 0.00,\n  \"totalAmount\": 108.90,\n  \"currencyCode\": \"USD\",\n  \"billingCycle\": \"MONTHLY\",\n  \"isTrial\": false,\n  \"autoRenew\": true\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/merchant-subscriptions",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "merchant-subscriptions"]
+            }
+          }
+        },
+        {
+          "name": "Get Subscription by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/merchant-subscriptions/{{subscription_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "merchant-subscriptions", "{{subscription_id}}"],
+              "variable": [{ "key": "subscription_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Get Subscription by Number",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/merchant-subscriptions/number/{{subscription_number}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "merchant-subscriptions", "number", "{{subscription_number}}"],
+              "variable": [{ "key": "subscription_number", "value": "SUB-ABC123456789" }]
+            }
+          }
+        },
+        {
+          "name": "Get Active Subscription by Merchant",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/merchant-subscriptions/merchant/{{merchant_id}}/active",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "merchant-subscriptions", "merchant", "{{merchant_id}}", "active"],
+              "variable": [{ "key": "merchant_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "List All Subscriptions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/merchant-subscriptions?search=&page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "merchant-subscriptions"],
+              "query": [
+                { "key": "search", "value": "", "disabled": true },
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "List Subscriptions by Merchant",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/merchant-subscriptions/merchant/{{merchant_id}}?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "merchant-subscriptions", "merchant", "{{merchant_id}}"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ],
+              "variable": [{ "key": "merchant_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Update Subscription",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nextBillingDate\": \"2026-06-08\",\n  \"autoRenew\": false\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/merchant-subscriptions/{{subscription_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "merchant-subscriptions", "{{subscription_id}}"],
+              "variable": [{ "key": "subscription_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Cancel Subscription",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"cancellationReason\": \"Customer requested cancellation\",\n  \"cancelledBy\": \"admin\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/merchant-subscriptions/{{subscription_id}}/cancel",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "merchant-subscriptions", "{{subscription_id}}", "cancel"],
+              "variable": [{ "key": "subscription_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Delete Subscription",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/merchant-subscriptions/{{subscription_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "merchant-subscriptions", "{{subscription_id}}"],
+              "variable": [{ "key": "subscription_id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Subscription History",
+      "item": [
+        {
+          "name": "Get History by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/subscription-history/{{id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "subscription-history", "{{id}}"],
+              "variable": [{ "key": "id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Get History by Merchant",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/subscription-history/merchant/{{merchant_id}}?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "subscription-history", "merchant", "{{merchant_id}}"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ],
+              "variable": [{ "key": "merchant_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Get History by Subscription",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/subscription-history/subscription/{{subscription_id}}?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "subscription-history", "subscription", "{{subscription_id}}"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ],
+              "variable": [{ "key": "subscription_id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Store",
+      "item": [
+        {
+          "name": "Create Store",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"merchantId\": 1,\n  \"code\": \"STORE001\",\n  \"name\": \"Main Branch\",\n  \"nameKh\": \"សាខាមេ\",\n  \"slug\": \"main-branch\",\n  \"subdomain\": \"main\",\n  \"description\": \"Our flagship store\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stores",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stores"]
+            }
+          }
+        },
+        {
+          "name": "Get Store by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stores/{{store_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stores", "{{store_id}}"],
+              "variable": [{ "key": "store_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Get Store by Slug",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stores/slug/{{slug}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stores", "slug", "{{slug}}"],
+              "variable": [{ "key": "slug", "value": "main-branch" }]
+            }
+          }
+        },
+        {
+          "name": "Get Store by Subdomain",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stores/subdomain/{{subdomain}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stores", "subdomain", "{{subdomain}}"],
+              "variable": [{ "key": "subdomain", "value": "main" }]
+            }
+          }
+        },
+        {
+          "name": "List Stores",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stores?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stores"],
+              "query": [
+                { "key": "search", "value": "", "disabled": true },
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "List Stores by Merchant",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stores/merchant/{{merchant_id}}?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stores", "merchant", "{{merchant_id}}"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ],
+              "variable": [{ "key": "merchant_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Update Store",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Main Branch Updated\",\n  \"description\": \"Updated description\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stores/{{store_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stores", "{{store_id}}"],
+              "variable": [{ "key": "store_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Soft Delete Store",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stores/{{store_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stores", "{{store_id}}"],
+              "variable": [{ "key": "store_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Hard Delete Store",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stores/{{store_id}}/permanent",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stores", "{{store_id}}", "permanent"],
+              "variable": [{ "key": "store_id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Store Settings",
+      "item": [
+        {
+          "name": "Create Store Settings",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"currencyCode\": \"USD\",\n  \"timezone\": \"Asia/Phnom_Penh\",\n  \"language\": \"en\",\n  \"taxEnabled\": true\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stores/{{store_id}}/settings",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stores", "{{store_id}}", "settings"],
+              "variable": [{ "key": "store_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Get Store Settings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stores/{{store_id}}/settings",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stores", "{{store_id}}", "settings"],
+              "variable": [{ "key": "store_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Update Store Settings",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"currencyCode\": \"USD\",\n  \"timezone\": \"Asia/Phnom_Penh\",\n  \"language\": \"km\",\n  \"taxEnabled\": false\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stores/{{store_id}}/settings",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stores", "{{store_id}}", "settings"],
+              "variable": [{ "key": "store_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Upsert Store Settings",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"currencyCode\": \"USD\",\n  \"timezone\": \"Asia/Phnom_Penh\",\n  \"language\": \"en\",\n  \"taxEnabled\": true\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stores/{{store_id}}/settings/upsert",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stores", "{{store_id}}", "settings", "upsert"],
+              "variable": [{ "key": "store_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Reset Store Settings to Defaults",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stores/{{store_id}}/settings/reset",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stores", "{{store_id}}", "settings", "reset"],
+              "variable": [{ "key": "store_id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Catalog - Brands",
+      "item": [
+        {
+          "name": "Create Brand",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"merchantId\": 1,\n  \"code\": \"BRAND001\",\n  \"name\": \"Nike\",\n  \"description\": \"Just Do It\",\n  \"logoUrl\": \"https://example.com/nike-logo.png\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/brands",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "brands"]
+            }
+          }
+        },
+        {
+          "name": "Get Brand by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/brands/{{brand_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "brands", "{{brand_id}}"],
+              "variable": [{ "key": "brand_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "List Brands",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/brands?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "brands"],
+              "query": [
+                { "key": "search", "value": "", "disabled": true },
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "List Brands by Merchant",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/brands/merchant/{{merchant_id}}?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "brands", "merchant", "{{merchant_id}}"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ],
+              "variable": [{ "key": "merchant_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Update Brand",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Nike Updated\",\n  \"description\": \"Updated description\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/brands/{{brand_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "brands", "{{brand_id}}"],
+              "variable": [{ "key": "brand_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Soft Delete Brand",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/brands/{{brand_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "brands", "{{brand_id}}"],
+              "variable": [{ "key": "brand_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Hard Delete Brand",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/brands/{{brand_id}}/permanent",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "brands", "{{brand_id}}", "permanent"],
+              "variable": [{ "key": "brand_id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Catalog - Categories",
+      "item": [
+        {
+          "name": "Create Category",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"merchantId\": 1,\n  \"parentId\": null,\n  \"code\": \"CAT001\",\n  \"name\": \"Electronics\",\n  \"nameKh\": \"អេឡិចត្រូនិច\",\n  \"description\": \"Electronic products\",\n  \"sortOrder\": 1\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/categories",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "categories"]
+            }
+          }
+        },
+        {
+          "name": "Get Category by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/categories/{{category_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "categories", "{{category_id}}"],
+              "variable": [{ "key": "category_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "List Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/categories?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "categories"],
+              "query": [
+                { "key": "search", "value": "", "disabled": true },
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "List Categories by Merchant",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/categories/merchant/{{merchant_id}}?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "categories", "merchant", "{{merchant_id}}"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ],
+              "variable": [{ "key": "merchant_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Get Root Categories by Merchant",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/categories/merchant/{{merchant_id}}/roots",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "categories", "merchant", "{{merchant_id}}", "roots"],
+              "variable": [{ "key": "merchant_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Update Category",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Electronics Updated\",\n  \"sortOrder\": 2\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/categories/{{category_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "categories", "{{category_id}}"],
+              "variable": [{ "key": "category_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Soft Delete Category",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/categories/{{category_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "categories", "{{category_id}}"],
+              "variable": [{ "key": "category_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Hard Delete Category",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/categories/{{category_id}}/permanent",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "categories", "{{category_id}}", "permanent"],
+              "variable": [{ "key": "category_id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Catalog - Products",
+      "item": [
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"merchantId\": 1,\n  \"categoryId\": 1,\n  \"brandId\": 1,\n  \"code\": \"PROD001\",\n  \"name\": \"iPhone 15 Pro\",\n  \"nameKh\": \"ទូរស័ព្ទ iPhone 15 Pro\",\n  \"description\": \"Latest Apple smartphone\",\n  \"basePrice\": 999.00,\n  \"currencyCode\": \"USD\",\n  \"unit\": \"PCS\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/products",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "products"]
+            }
+          }
+        },
+        {
+          "name": "Get Product by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/products/{{product_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "products", "{{product_id}}"],
+              "variable": [{ "key": "product_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "List Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/products?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "products"],
+              "query": [
+                { "key": "search", "value": "", "disabled": true },
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "List Products by Merchant",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/products/merchant/{{merchant_id}}?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "products", "merchant", "{{merchant_id}}"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ],
+              "variable": [{ "key": "merchant_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "List Products by Category",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/products/category/{{category_id}}?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "products", "category", "{{category_id}}"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ],
+              "variable": [{ "key": "category_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Update Product",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"iPhone 15 Pro Max\",\n  \"basePrice\": 1099.00\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/products/{{product_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "products", "{{product_id}}"],
+              "variable": [{ "key": "product_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Publish Product",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/products/{{product_id}}/publish",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "products", "{{product_id}}", "publish"],
+              "variable": [{ "key": "product_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Unpublish Product",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/products/{{product_id}}/unpublish",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "products", "{{product_id}}", "unpublish"],
+              "variable": [{ "key": "product_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Soft Delete Product",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/products/{{product_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "products", "{{product_id}}"],
+              "variable": [{ "key": "product_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Hard Delete Product",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/products/{{product_id}}/permanent",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "products", "{{product_id}}", "permanent"],
+              "variable": [{ "key": "product_id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Catalog - Product Variants",
+      "item": [
+        {
+          "name": "Create Product Variant",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": 1,\n  \"sku\": \"IPHONE-15PRO-256-BLACK\",\n  \"name\": \"256GB Black Titanium\",\n  \"price\": 999.00,\n  \"currencyCode\": \"USD\",\n  \"attributes\": {\"storage\": \"256GB\", \"color\": \"Black Titanium\"},\n  \"isDefault\": true\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/product-variants",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "product-variants"]
+            }
+          }
+        },
+        {
+          "name": "Get Variant by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/product-variants/{{variant_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "product-variants", "{{variant_id}}"],
+              "variable": [{ "key": "variant_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "List Variants by Product",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/product-variants/product/{{product_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "product-variants", "product", "{{product_id}}"],
+              "variable": [{ "key": "product_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Update Variant",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"price\": 1049.00,\n  \"sku\": \"IPHONE-15PRO-256-BLACK-V2\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/product-variants/{{variant_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "product-variants", "{{variant_id}}"],
+              "variable": [{ "key": "variant_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Set Default Variant",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/product-variants/{{variant_id}}/default",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "product-variants", "{{variant_id}}", "default"],
+              "variable": [{ "key": "variant_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Delete Variant",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/product-variants/{{variant_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "product-variants", "{{variant_id}}"],
+              "variable": [{ "key": "variant_id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Catalog - Product Images",
+      "item": [
+        {
+          "name": "Add Product Image",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": 1,\n  \"imageUrl\": \"https://example.com/products/iphone15-front.jpg\",\n  \"altText\": \"iPhone 15 Pro front view\",\n  \"sortOrder\": 1,\n  \"isPrimary\": true\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/product-images",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "product-images"]
+            }
+          }
+        },
+        {
+          "name": "Get Image by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/product-images/{{image_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "product-images", "{{image_id}}"],
+              "variable": [{ "key": "image_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "List Images by Product",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/product-images/product/{{product_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "product-images", "product", "{{product_id}}"],
+              "variable": [{ "key": "product_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Update Image",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"altText\": \"Updated alt text\",\n  \"sortOrder\": 2\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/product-images/{{image_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "product-images", "{{image_id}}"],
+              "variable": [{ "key": "image_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Set Primary Image",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/product-images/{{image_id}}/primary",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "product-images", "{{image_id}}", "primary"],
+              "variable": [{ "key": "image_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Delete Image",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/product-images/{{image_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "product-images", "{{image_id}}"],
+              "variable": [{ "key": "image_id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Catalog - Menu Categories",
+      "item": [
+        {
+          "name": "Create Menu Category",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"storeId\": 1,\n  \"name\": \"Beverages\",\n  \"nameKh\": \"ភេសជ្ជៈ\",\n  \"description\": \"All drinks\",\n  \"sortOrder\": 1\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/menu-categories",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "menu-categories"]
+            }
+          }
+        },
+        {
+          "name": "Get Menu Category by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/menu-categories/{{menu_category_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "menu-categories", "{{menu_category_id}}"],
+              "variable": [{ "key": "menu_category_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "List Menu Categories by Store",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/menu-categories/store/{{store_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "menu-categories", "store", "{{store_id}}"],
+              "variable": [{ "key": "store_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "List Menu Categories by Store (Paged)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/menu-categories/store/{{store_id}}/paged?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "menu-categories", "store", "{{store_id}}", "paged"],
+              "query": [
+                { "key": "search", "value": "", "disabled": true },
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ],
+              "variable": [{ "key": "store_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Update Menu Category",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Hot Beverages\",\n  \"sortOrder\": 2\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/menu-categories/{{menu_category_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "menu-categories", "{{menu_category_id}}"],
+              "variable": [{ "key": "menu_category_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Delete Menu Category",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/menu-categories/{{menu_category_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "menu-categories", "{{menu_category_id}}"],
+              "variable": [{ "key": "menu_category_id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Catalog - Menu Items",
+      "item": [
+        {
+          "name": "Create Menu Item",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"menuCategoryId\": 1,\n  \"productId\": 1,\n  \"name\": \"Iced Americano\",\n  \"nameKh\": \"កាហ្វេទឹកកក\",\n  \"price\": 3.50,\n  \"currencyCode\": \"USD\",\n  \"isAvailable\": true,\n  \"sortOrder\": 1\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/menu-items",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "menu-items"]
+            }
+          }
+        },
+        {
+          "name": "Get Menu Item by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/menu-items/{{menu_item_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "menu-items", "{{menu_item_id}}"],
+              "variable": [{ "key": "menu_item_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "List Menu Items by Category",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/menu-items/menu-category/{{menu_category_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "menu-items", "menu-category", "{{menu_category_id}}"],
+              "variable": [{ "key": "menu_category_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "List Menu Items by Category (Paged)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/menu-items/menu-category/{{menu_category_id}}/paged?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "menu-items", "menu-category", "{{menu_category_id}}", "paged"],
+              "query": [
+                { "key": "search", "value": "", "disabled": true },
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ],
+              "variable": [{ "key": "menu_category_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Get Available Menu Items by Store",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/menu-items/store/{{store_id}}/available",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "menu-items", "store", "{{store_id}}", "available"],
+              "variable": [{ "key": "store_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Update Menu Item",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Iced Americano Large\",\n  \"price\": 4.50\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/menu-items/{{menu_item_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "menu-items", "{{menu_item_id}}"],
+              "variable": [{ "key": "menu_item_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Delete Menu Item",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/menu-items/{{menu_item_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "menu-items", "{{menu_item_id}}"],
+              "variable": [{ "key": "menu_item_id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Inventory - Locations",
+      "item": [
+        {
+          "name": "Create Inventory Location",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"merchantId\": 1,\n  \"code\": \"WH001\",\n  \"name\": \"Main Warehouse\",\n  \"type\": \"WAREHOUSE\",\n  \"address\": \"123 Warehouse St, Phnom Penh\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/inventory-locations",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "inventory-locations"]
+            }
+          }
+        },
+        {
+          "name": "Get Location by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/inventory-locations/{{location_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "inventory-locations", "{{location_id}}"],
+              "variable": [{ "key": "location_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "List Locations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/inventory-locations?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "inventory-locations"],
+              "query": [
+                { "key": "search", "value": "", "disabled": true },
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "List Locations by Merchant",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/inventory-locations/merchant/{{merchant_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "inventory-locations", "merchant", "{{merchant_id}}"],
+              "variable": [{ "key": "merchant_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "List Locations by Merchant (Paged)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/inventory-locations/merchant/{{merchant_id}}/paged?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "inventory-locations", "merchant", "{{merchant_id}}", "paged"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ],
+              "variable": [{ "key": "merchant_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Update Location",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Main Warehouse Updated\",\n  \"address\": \"456 New Warehouse St\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/inventory-locations/{{location_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "inventory-locations", "{{location_id}}"],
+              "variable": [{ "key": "location_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Delete Location",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/inventory-locations/{{location_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "inventory-locations", "{{location_id}}"],
+              "variable": [{ "key": "location_id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Inventory - Stocks",
+      "item": [
+        {
+          "name": "Create Inventory Stock",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": 1,\n  \"locationId\": 1,\n  \"quantity\": 100,\n  \"reservedQuantity\": 0,\n  \"reorderPoint\": 10,\n  \"reorderQuantity\": 50\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/inventory-stocks",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "inventory-stocks"]
+            }
+          }
+        },
+        {
+          "name": "Get Stock by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/inventory-stocks/{{stock_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "inventory-stocks", "{{stock_id}}"],
+              "variable": [{ "key": "stock_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "List Stocks by Product",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/inventory-stocks/product/{{product_id}}?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "inventory-stocks", "product", "{{product_id}}"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ],
+              "variable": [{ "key": "product_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "List Stocks by Location",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/inventory-stocks/location/{{location_id}}?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "inventory-stocks", "location", "{{location_id}}"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ],
+              "variable": [{ "key": "location_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Get Low Stock Items",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/inventory-stocks/low-stock",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "inventory-stocks", "low-stock"]
+            }
+          }
+        },
+        {
+          "name": "Update Stock",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reorderPoint\": 15,\n  \"reorderQuantity\": 60\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/inventory-stocks/{{stock_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "inventory-stocks", "{{stock_id}}"],
+              "variable": [{ "key": "stock_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Add Stock",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quantity\": 50,\n  \"reason\": \"Purchase order received\",\n  \"reference\": \"PO-001\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/inventory-stocks/{{stock_id}}/add",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "inventory-stocks", "{{stock_id}}", "add"],
+              "variable": [{ "key": "stock_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Deduct Stock",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quantity\": 10,\n  \"reason\": \"Sale\",\n  \"reference\": \"ORDER-001\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/inventory-stocks/{{stock_id}}/deduct",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "inventory-stocks", "{{stock_id}}", "deduct"],
+              "variable": [{ "key": "stock_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Delete Stock",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/inventory-stocks/{{stock_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "inventory-stocks", "{{stock_id}}"],
+              "variable": [{ "key": "stock_id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Inventory - Transactions",
+      "item": [
+        {
+          "name": "Get Transaction by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/inventory-transactions/{{transaction_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "inventory-transactions", "{{transaction_id}}"],
+              "variable": [{ "key": "transaction_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "List Transactions by Product",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/inventory-transactions/product/{{product_id}}?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "inventory-transactions", "product", "{{product_id}}"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ],
+              "variable": [{ "key": "product_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "List Transactions by Location",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/inventory-transactions/location/{{location_id}}?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "inventory-transactions", "location", "{{location_id}}"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ],
+              "variable": [{ "key": "location_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "List Transactions by Type",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/inventory-transactions/type/{{type}}?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "inventory-transactions", "type", "{{type}}"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ],
+              "variable": [{ "key": "type", "value": "IN" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Inventory - Stock Adjustments",
+      "item": [
+        {
+          "name": "Create Stock Adjustment",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"locationId\": 1,\n  \"adjustmentType\": \"INCREASE\",\n  \"reason\": \"Inventory count correction\",\n  \"notes\": \"Physical count revealed discrepancy\",\n  \"items\": [\n    {\n      \"stockId\": 1,\n      \"quantityAdjusted\": 5,\n      \"notes\": \"Found extra units\"\n    }\n  ]\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stock-adjustments",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stock-adjustments"]
+            }
+          }
+        },
+        {
+          "name": "Get Adjustment by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stock-adjustments/{{adjustment_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stock-adjustments", "{{adjustment_id}}"],
+              "variable": [{ "key": "adjustment_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Get Adjustment by Number",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stock-adjustments/number/{{adjustment_number}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stock-adjustments", "number", "{{adjustment_number}}"],
+              "variable": [{ "key": "adjustment_number", "value": "ADJ-ABC123456789" }]
+            }
+          }
+        },
+        {
+          "name": "List Adjustments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stock-adjustments?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stock-adjustments"],
+              "query": [
+                { "key": "search", "value": "", "disabled": true },
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "List Adjustments by Location",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stock-adjustments/location/{{location_id}}?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stock-adjustments", "location", "{{location_id}}"],
+              "query": [
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ],
+              "variable": [{ "key": "location_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Approve Adjustment",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stock-adjustments/{{adjustment_id}}/approve?approvedBy=admin",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stock-adjustments", "{{adjustment_id}}", "approve"],
+              "query": [{ "key": "approvedBy", "value": "admin" }],
+              "variable": [{ "key": "adjustment_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Complete Adjustment",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stock-adjustments/{{adjustment_id}}/complete",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stock-adjustments", "{{adjustment_id}}", "complete"],
+              "variable": [{ "key": "adjustment_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Delete Adjustment",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/stock-adjustments/{{adjustment_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "stock-adjustments", "{{adjustment_id}}"],
+              "variable": [{ "key": "adjustment_id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Billing - Taxes",
+      "item": [
+        {
+          "name": "Create Tax",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"code\": \"VAT_KH_10\",\n  \"name\": \"Cambodia VAT 10%\",\n  \"rate\": 10.00,\n  \"taxType\": \"BOTH\",\n  \"priceIncluded\": false,\n  \"countryCode\": \"KH\",\n  \"effectiveFrom\": \"2026-01-01T00:00:00\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/taxes",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "taxes"]
+            }
+          }
+        },
+        {
+          "name": "Get Tax by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/taxes/{{tax_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "taxes", "{{tax_id}}"],
+              "variable": [{ "key": "tax_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Get Tax by Code",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/taxes/code/{{code}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "taxes", "code", "{{code}}"],
+              "variable": [{ "key": "code", "value": "VAT_KH_10" }]
+            }
+          }
+        },
+        {
+          "name": "Get Active Taxes by Country",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/taxes/country/{{countryCode}}?taxType=BOTH",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "taxes", "country", "{{countryCode}}"],
+              "query": [{ "key": "taxType", "value": "BOTH", "disabled": true }],
+              "variable": [{ "key": "countryCode", "value": "KH" }]
+            }
+          }
+        },
+        {
+          "name": "List Taxes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/taxes?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "taxes"],
+              "query": [
+                { "key": "search", "value": "", "disabled": true },
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Tax",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Cambodia VAT 10% (Updated)\",\n  \"rate\": 10.00,\n  \"taxType\": \"SUBSCRIPTION\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/taxes/{{tax_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "taxes", "{{tax_id}}"],
+              "variable": [{ "key": "tax_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Delete Tax",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/taxes/{{tax_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "taxes", "{{tax_id}}"],
+              "variable": [{ "key": "tax_id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Billing - Invoices",
+      "item": [
+        {
+          "name": "Create Invoice",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"merchantId\": 1,\n  \"subscriptionId\": 1,\n  \"invoiceDate\": \"2026-04-08\",\n  \"dueDate\": \"2026-04-22\",\n  \"subtotal\": 99.00,\n  \"taxAmount\": 9.90,\n  \"discountAmount\": 0.00,\n  \"totalAmount\": 108.90,\n  \"currencyCode\": \"USD\",\n  \"billingAddress\": \"{\\\"street\\\": \\\"123 Main St\\\", \\\"city\\\": \\\"Phnom Penh\\\", \\\"country\\\": \\\"KH\\\"}\",\n  \"notes\": \"Monthly subscription invoice\",\n  \"items\": [\n    {\n      \"description\": \"Pro Plan - Monthly Subscription\",\n      \"quantity\": 1,\n      \"unitPrice\": 99.00,\n      \"taxRate\": 10.00,\n      \"sortOrder\": 1\n    }\n  ]\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/invoices",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "invoices"]
+            }
+          }
+        },
+        {
+          "name": "Get Invoice by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/invoices/{{invoice_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "invoices", "{{invoice_id}}"],
+              "variable": [{ "key": "invoice_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Get Invoice by Number",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/invoices/number/{{invoice_number}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "invoices", "number", "{{invoice_number}}"],
+              "variable": [{ "key": "invoice_number", "value": "INV-ABC123456789" }]
+            }
+          }
+        },
+        {
+          "name": "List Invoices by Merchant",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/invoices/merchant/{{merchant_id}}?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "invoices", "merchant", "{{merchant_id}}"],
+              "query": [
+                { "key": "search", "value": "", "disabled": true },
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ],
+              "variable": [{ "key": "merchant_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "List All Invoices",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/invoices?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "invoices"],
+              "query": [
+                { "key": "search", "value": "", "disabled": true },
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Invoice",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"dueDate\": \"2026-04-30\",\n  \"notes\": \"Updated notes\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/invoices/{{invoice_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "invoices", "{{invoice_id}}"],
+              "variable": [{ "key": "invoice_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Mark Invoice as Sent",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/invoices/{{invoice_id}}/send",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "invoices", "{{invoice_id}}", "send"],
+              "variable": [{ "key": "invoice_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Mark Invoice as Paid",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/invoices/{{invoice_id}}/pay?paymentId=1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "invoices", "{{invoice_id}}", "pay"],
+              "query": [{ "key": "paymentId", "value": "1", "disabled": true }],
+              "variable": [{ "key": "invoice_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Delete Invoice",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/invoices/{{invoice_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "invoices", "{{invoice_id}}"],
+              "variable": [{ "key": "invoice_id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Billing - Invoice Items",
+      "item": [
+        {
+          "name": "Create Invoice Item",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Pro Plan Add-on\",\n  \"quantity\": 1,\n  \"unitPrice\": 20.00,\n  \"taxRate\": 10.00,\n  \"sortOrder\": 2\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/invoice-items/invoice/{{invoice_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "invoice-items", "invoice", "{{invoice_id}}"],
+              "variable": [{ "key": "invoice_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Get Invoice Item by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/invoice-items/{{item_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "invoice-items", "{{item_id}}"],
+              "variable": [{ "key": "item_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "List Invoice Items by Invoice",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/invoice-items/invoice/{{invoice_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "invoice-items", "invoice", "{{invoice_id}}"],
+              "variable": [{ "key": "invoice_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Update Invoice Item",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Pro Plan Add-on (Updated)\",\n  \"unitPrice\": 25.00\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/invoice-items/{{item_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "invoice-items", "{{item_id}}"],
+              "variable": [{ "key": "item_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Delete Invoice Item",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/invoice-items/{{item_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "invoice-items", "{{item_id}}"],
+              "variable": [{ "key": "item_id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Billing - Payments",
+      "item": [
+        {
+          "name": "Create Payment",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"merchantId\": 1,\n  \"subscriptionId\": 1,\n  \"planId\": 1,\n  \"taxId\": 1,\n  \"invoiceNumber\": \"INV-ABC123456789\",\n  \"baseAmount\": 99.00,\n  \"taxAmount\": 9.90,\n  \"discountAmount\": 0.00,\n  \"totalAmount\": 108.90,\n  \"currencyCode\": \"USD\",\n  \"paymentMethod\": \"CREDIT_CARD\",\n  \"paymentProvider\": \"STRIPE\",\n  \"transactionId\": \"txn_stripe_abc123\",\n  \"paymentDate\": \"2026-04-08T10:00:00\",\n  \"description\": \"Monthly subscription payment\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/payments",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "payments"]
+            }
+          }
+        },
+        {
+          "name": "Get Payment by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/payments/{{payment_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "payments", "{{payment_id}}"],
+              "variable": [{ "key": "payment_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Get Payment by Number",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/payments/number/{{payment_number}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "payments", "number", "{{payment_number}}"],
+              "variable": [{ "key": "payment_number", "value": "PAY-ABC123456789" }]
+            }
+          }
+        },
+        {
+          "name": "List Payments by Merchant",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/payments/merchant/{{merchant_id}}?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "payments", "merchant", "{{merchant_id}}"],
+              "query": [
+                { "key": "search", "value": "", "disabled": true },
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ],
+              "variable": [{ "key": "merchant_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "List All Payments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/payments?page=0&size=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "payments"],
+              "query": [
+                { "key": "search", "value": "", "disabled": true },
+                { "key": "page", "value": "0" },
+                { "key": "size", "value": "20" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Payment",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"transactionId\": \"txn_stripe_updated\",\n  \"description\": \"Updated payment description\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/payments/{{payment_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "payments", "{{payment_id}}"],
+              "variable": [{ "key": "payment_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Mark Payment as Processed",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/payments/{{payment_id}}/process",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "payments", "{{payment_id}}", "process"],
+              "variable": [{ "key": "payment_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Mark Payment as Failed",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/payments/{{payment_id}}/fail?failureReason=Insufficient+funds&failureCode=INSUFFICIENT_FUNDS",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "payments", "{{payment_id}}", "fail"],
+              "query": [
+                { "key": "failureReason", "value": "Insufficient funds" },
+                { "key": "failureCode", "value": "INSUFFICIENT_FUNDS" }
+              ],
+              "variable": [{ "key": "payment_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Refund Payment",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"refundAmount\": 108.90,\n  \"refundReason\": \"Customer requested full refund\"\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/payments/{{payment_id}}/refund",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "payments", "{{payment_id}}", "refund"],
+              "variable": [{ "key": "payment_id", "value": "1" }]
+            }
+          }
+        },
+        {
+          "name": "Delete Payment",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/v1/admin/billing/payments/{{payment_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "v1", "admin", "billing", "payments", "{{payment_id}}"],
+              "variable": [{ "key": "payment_id", "value": "1" }]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8080/api-backend",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string",
+      "description": "Bearer token — set this after calling GET Token"
+    }
+  ]
+}
